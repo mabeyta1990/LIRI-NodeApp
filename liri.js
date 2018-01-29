@@ -5,8 +5,7 @@ var fs = require('fs');
 var keys = require('./keys.js');
 
 var twitterKeys = keys.twitterKeys;
-var cmdArgs = process.argv;
-var liriCommand = cmdArgs[2];
+var liriCommand = process.argv[2];
 //INSTRUCTIONS TO BE DISPLAYED FOR THE USER WHEN RUNNING--------------------------------------------------------------
 switch(liriCommand) {
   case "my-tweets": myTweets(); break;
@@ -140,11 +139,3 @@ function doWhatItSays() {
     }
   });
 };
-// Do What It Says function, uses the reads and writes module to access the log.txt file and write everything that returns in terminal in the log.txt file
-function log(logResults) {
-  fs.appendFile("log.txt", logResults, (error) => {
-    if(error) {
-      throw error;
-    }
-  });
-}
